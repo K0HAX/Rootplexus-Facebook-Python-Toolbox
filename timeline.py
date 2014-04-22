@@ -11,11 +11,6 @@ graph = facebook.GraphAPI(token)
 profile = graph.get_object("me")
 news_feed = graph.get_connections("me", "home")
 
-# friends_list = [friend['name'] for friend in friends['data']]
-
-# print friends_list
-# print profile['id']
-
 for post in reversed(news_feed['data']):
 	print post['from'].get("name")
 	print post.get("message")
