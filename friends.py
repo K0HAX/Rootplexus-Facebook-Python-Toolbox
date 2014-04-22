@@ -1,5 +1,6 @@
 #!/usr/bin/python
 import facebook
+import json
 
 def file_get_contents(filename):
         with open(filename) as f:
@@ -16,6 +17,6 @@ friends = graph.get_connections("me", "friends")
 # print friends_list
 # print profile['id']
 
-for friend in friends['data']:
+for friend in sorted(friends['data'], key=lambda friend:friend['name']):
 	print friend['name']
 
